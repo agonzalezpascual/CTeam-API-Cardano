@@ -38,6 +38,6 @@ def get_ada_in_wallet():
         print(address.type)  # prints 'shelley'
         for amount in address.amount:
             print(amount.quantity)  # prints 'lovelace'
-        return amount.quantity
+        return {"lovelace":amount.quantity}
     except ApiError as e:
         print(e)
