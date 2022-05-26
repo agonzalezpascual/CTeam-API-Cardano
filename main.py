@@ -1,4 +1,5 @@
 from blockfrost import BlockFrostApi, ApiError, ApiUrls
+from flask_cors import cross_origin
 
 api = BlockFrostApi(
     project_id='testnetGUOhfUBi4nP8Ac3HyLkFL9aw8DTTvFVJ',  # or export environment variable BLOCKFROST_PROJECT_ID
@@ -31,6 +32,7 @@ try:
 except ApiError as e:
     print(e)
 
+@cross_origin()
 def get_ada_in_wallet():
     try:
         address = api.address(
